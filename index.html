@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MathOdyssey Explorer</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="icon" sizes="32x32" href="MathOdyssey_logo.png" />
+
+    <style>
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .header,
+      .buttons,
+      .footer,
+      .key {
+        flex-shrink: 0;
+      }
+
+      .header {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+
+      .footer {
+        padding: 10px;
+        font-size: 12px;
+      }
+
+      .scrollable-div {
+        /* flex-grow: 1; */
+        height: calc(100vh - 460px);
+        overflow-y: auto;
+        background-color: #f5f5f5;
+        padding: 10px;
+        border-radius: 10px;
+        border: 1px solid black;
+      }
+
+      .buttons {
+        margin-top: 10px;
+      }
+
+      .btn {
+        margin-bottom: 7px;
+      }
+
+      .left-col {
+        width: 200px; /* Adjust this value as per your requirement */
+      }
+
+      table tr,
+      table td {
+        border: none !important;
+      }
+
+      .bottom-border {
+        border-bottom: 1px solid gray !important;
+      }
+
+      .key-item {
+        margin-left: 2px;
+        margin-right: 2px;
+      }
+
+      .key-item::before {
+        content: ""; /* This is necessary for the pseudo-element to work */
+        display: inline-block;
+        width: 19px; /* Width of the square */
+        height: 19px; /* Height of the square */
+        margin-right: 5px; /* Space between the square and the text */
+        vertical-align: middle; /* Aligns the square with the text */
+        border: 1px solid black; /* Border around the square */
+        border-radius: 2px; /* Rounded corners */
+      }
+
+      .key-item.correct::before {
+        background-color: #3ebd66; /* Color for "Correct" */
+      }
+
+      .key-item.incorrect::before {
+        background-color: rgb(255 187 187); /* Color for "Incorrect" */
+      }
+
+      .typing-cursor {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: black;
+        border-radius: 50%; /* Make it round */
+        animation: pulse 1s infinite;
+      }
+
+      .fade-in {
+        opacity: 0;
+        transition: opacity 0.2s ease-in-out; /* 1 second fade time */
+        visibility: hidden;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.5);
+        }
+      }
+
+      #modelAnswer {
+        /* border: 1px solid black !important; */
+        background-color: white;
+        border-radius: 10px;
+      }
+
+      #footer-logo {
+        position: fixed; /* Fixed position - stays in the same place even if you scroll */
+        bottom: 10px; /* 10px from the bottom */
+        left: 10px; /* 10px from the left */
+        z-index: 1000; /* Ensure it appears on top of other elements */
+      }
+      #footer-logo img {
+        width: 50px; /* Adjust the width as necessary */
+        height: auto; /* Keep the logo aspect ratio */
+      }
+    </style>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+      MathJax = {
+        tex: {
+          inlineMath: [
+            ["$", "$"],
+            ["\\(", "\\)"],
+          ],
+        },
+      };
+    </script>
+    <script
+      id="MathJax-script"
+      src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Header -->
+      <div class="header row center-content">
+        <div class="col text-center">
+          <img src="MathOdyssey_logo.png" width="300px" />
+          <p style="margin-top: -0px">DATA EXPLORER</p>
+          <a href="http://arxiv.org/abs/x">arXiv</a> |
+          <a href="https://www.agiodyssey.org/#/Olympic">Competition</a> | 🤗 Try
+          <a href="https://github.com/protagolabs/odyssey-math">GitHub</a>
+        </div>
+      </div>
+
+      <!-- Buttons -->
+      <div class="buttons text-center mb-3">
+        <button type="button" class="btn btn-primary" data="minerva_math_Alge_tion"> Algebra - High School Competition </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Alge_math"> Algebra - High School Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Numb_tion"> NumberTheory - High School Competition </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Geom_tion"> Geometry - High School Competition </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Geom_math"> Geometry - High School Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Comb_tion"> Combinatorics - High School Competition </button>
+        <button type="button" class="btn btn-light" data="minerva_math_PreC_math"> PreCalculus - High School Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Trig_math"> Trigonometry - High School Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Calc_math"> Calculus - High School Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Seri_math"> Series - High School Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Diff_math"> Differential Equations - College Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Line_math"> Linear Algebra and Abstract Algebra - College Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Calc_math"> Calculus and Analysis - College Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Prob_math"> Probability - College Math </button>
+        <button type="button" class="btn btn-light" data="minerva_math_Stat_math"> Statistics - College Math </button>
+        <!-- Add more buttons as needed -->
+      </div>
+
+      <!-- Scrollable Content Area -->
+      <div class="scrollable-div">
+        <table class="table">
+          <tr>
+            <td class="left-col">
+              <b>PROBLEM SOURCE</b>
+            </td>
+            <td id="problemSource">MATH Algebra Level 1</td>
+          </tr>
+          <tr>
+            <td class="left-col"><b>QUESTION</b></td>
+            <td id="question">
+              If a drip of water is equivalent to $\frac{1}{4}$ of a milliliter,
+              how many drips are in a liter of water? Note: 1 liter = 1000
+              milliliters.
+            </td>
+          </tr>
+          <!--
+          <tr>
+            <td class="left-col">
+              <b
+                >LLEMMA 34B<br /><small
+                  >Answers sampled using
+                  <a href="https://arxiv.org/abs/2203.11171"
+                    >self-consistency</a
+                  >
+                  with $k=256$.</small
+                ></b
+              >
+            </td>
+            <td id="modelAnswer">
+              We know that 1 liter of water is equivalent to 1000 milliliters.
+              Since 1 milliliter is equivalent to 4 drips, we have that 1000
+              milliliters is equivalent to $4\cdot1000=4000$ drips. Therefore,
+              the answer is $\boxed{4000}$. Final Answer: The final answer is
+              $4000$.
+            </td>
+          </tr>
+          <tr class="fade-in">
+            <td class="left-col">
+              <b
+                >EVALUATION RESULT<br /><small
+                  >Automatic evaluation results are sometimes inaccurate.</small
+                ></b
+              >
+            </td>
+            <td id="result">Correct</td>
+          </tr>
+        -->
+          <tr>
+            <td class="left-col">
+              <b>REFERENCE ANSWER</b>
+            </td>
+            <td id="referenceAnswer">
+              If a drip of water is equivalent to $\frac{1}{4}$ of a milliliter,
+              then $4$ drips of water must be equivalent to $1$ milliliter of
+              water. Since there are $1000$ milliliters in a liter, it follows
+              that there are $4 \times 1000 = \boxed{4000}$ drips in a liter of
+              water.
+            </td>
+          </tr>
+        </table>
+      </div>
+
+      <!-- Key -->
+      <!-- <div class="key mt-3 text-center">
+        <span class="key-item correct">Correct</span>
+        <span class="key-item incorrect">Incorrect</span>
+      </div> -->
+
+      <div class="navigation-buttons text-center mt-3">
+        <button type="button" id="leftButton" class="btn btn-secondary">
+          &lt;&lt;
+        </button>
+        <button type="button" id="rightButton" class="btn btn-secondary">
+          &gt;&gt;
+        </button>
+        <div class="mt-2">
+          <span id="currentPage">1</span> / <span id="totalPages">4</span>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer text-center mt-3">
+      This site is heavily inspired by the
+        <a href="https://minerva-demo.github.io">Minerva sample explorer</a> and Llemma.
+      </div>
+
+    
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="samples_gen.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        let currentPage = 1;
+        let totalPages = 4;
+        // let correctColor = "#f5f5f5";
+        let correctColor = "#B4F3BC";
+        let incorrectColor = "#FFD5D5";
+        let typingInterval; // outside of the function, to store the interval ID
+        let isTyping = false;
+        changeSubject("minerva_math_Alge_tion");
+
+        function changeSubject(subject) {
+          curSubject = subject;
+          data = DATA[curSubject];
+          totalPages = data.length;
+          $("#totalPages").text(totalPages);
+          currentPage = 1;
+          $("#currentPage").text(currentPage);
+          updateData(currentPage);
+          updateButtonStatus();
+        }
+
+        function updateData(idx) {
+          idx = idx - 1;
+          $("#question").text(data[idx]["question"]);
+          // $(".fade-in").removeClass("visible");
+          reference_answer = data[idx]["reference_answer"].replace(/\n/g, "<br>");
+          $("#referenceAnswer").html(reference_answer);
+          $("#problemSource").text(data[idx]["problem_source"]);
+          // replace \n with <br> for model answer
+          //model_answer = data[idx]["model_answer"].replace(/\n/g, "<br>");
+          //$("#modelAnswer").html(model_answer);
+          //if (data[idx]["result"] == "Correct") {
+          //  $("#result").text("✅ " + data[idx]["result"]);
+          //  $("#modelAnswer").css("background-color", correctColor);
+          //} else {
+          //  $("#result").text("❌ " + data[idx]["result"]);
+          //  $("#modelAnswer").css("background-color", incorrectColor);
+          //}
+          $(".fade-in").addClass("visible");
+          MathJax.typesetPromise();
+        }
+
+        function updateButtonStatus() {
+          // Disable the left button if at the beginning
+          if (currentPage <= 1) {
+            $("#leftButton").prop("disabled", true);
+          } else {
+            $("#leftButton").prop("disabled", false);
+          }
+
+          // Disable the right button if at the end
+          if (currentPage >= totalPages) {
+            $("#rightButton").prop("disabled", true);
+          } else {
+            $("#rightButton").prop("disabled", false);
+          }
+        }
+
+        // Initial button status update
+        updateButtonStatus();
+
+        $("#leftButton").click(function () {
+          if (currentPage > 1) {
+            currentPage--;
+            $("#currentPage").text(currentPage);
+            updateData(currentPage);
+          }
+          updateButtonStatus();
+        });
+
+        $("#rightButton").click(function () {
+          if (currentPage < totalPages) {
+            currentPage++;
+            $("#currentPage").text(currentPage);
+            updateData(currentPage);
+          }
+          updateButtonStatus();
+        });
+
+        $(document).keydown(function (e) {
+          switch (e.which) {
+            case 37: // left arrow key
+              if (currentPage > 1) {
+                currentPage--;
+                $("#currentPage").text(currentPage);
+                updateData(currentPage);
+              }
+              updateButtonStatus();
+              break;
+
+            case 39: // right arrow key
+              if (currentPage < totalPages) {
+                currentPage++;
+                $("#currentPage").text(currentPage);
+                updateData(currentPage);
+              }
+              updateButtonStatus();
+              break;
+
+            default:
+              return; // exit this handler for other keys
+          }
+          e.preventDefault(); // prevent the default action (scroll / move caret)
+        });
+
+        $(".buttons button").click(function () {
+          // Revert all buttons to .btn-light class
+          $(".buttons button").removeClass("btn-primary").addClass("btn-light");
+
+          // Set the clicked button to .btn-primary class
+          $(this).removeClass("btn-light").addClass("btn-primary");
+
+          // get the "data" attribute of this
+          let subject = $(this).attr("data");
+          console.log(subject);
+
+          changeSubject(subject);
+        });
+      });
+    </script>
+  </body>
+</html>
