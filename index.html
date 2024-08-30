@@ -190,15 +190,17 @@
         }
         .custom-title {
         font-family: Calibri (Body); /* 更改字体类型 */
-        color: #333; /* 更改字体颜色 */
-        font-size: 24px; /* 更改字体大小 */
+        color: #000000; /* 更改字体颜色 */
+        font-size: 32px; /* 更改字体大小 */
         text-align: center; /* 文本居中对齐 */
         margin-top: 20px; /* 增加顶部边距 */
       }
-
+      p{
+        text-indent: 2em;
+      }
       .custom-paragraph {
         font-family: Calibri; /* 更改字体类型 */
-        color: #444; /* 更改字体颜色 */
+        color: #000000; /* 更改字体颜色 */
         font-size: 18px; /* 更改字体大小 */
         line-height: 1.6; /* 行高 */
         margin-bottom: 20px; /* 增加底部边距 */
@@ -254,13 +256,13 @@
     <link rel="stylesheet"
         href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
     <link rel="stylesheet" href="./static/css/index.css">
-    <link rel="icon" href="./static/images/icon.png">
+    <!-- <link rel="icon" href="./static/images/icon.png"> -->
     <script type="text/javascript" src="static/js/sort-table.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script defer src="./static/js/fontawesome.all.min.js"></script>
-    <script src="/Users/mch/Desktop/math.github.io/static/js/bulma-carousel.min.js"></script>
-    <script src="/Users/mch/Desktop/math.github.io/static/js/bulma-slider.min.js"></script>
-    <script src="/Users/mch/Desktop/math.github.io/static/js/index.js"></script>
+    <!-- <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+    <script src="./static/js/index.js"></script> -->
   </head>
   <body>
     <section>
@@ -371,9 +373,13 @@
         </div>
       </div> -->
       <img src="25541724923794_.pic.jpg" class="img-fluid" alt="描述性文字">
-      <h2 class="custom-title">Leaderboard测试两下</h2>
-      <p class="custom-paragraph">MathOdyssey tests the mathematical reasoning ability of large language models. The dataset was created by <b> human professionals</b>  to ensure high quality and has <b>not been seen</b> by the models before.  It is designed exclusively for testing purposes. </br>
-      We welcome you to contribute results from your model evaluations, or we can evaluate your model and add it to the leaderboard. Please contact us at hello (at) agiodyssey.org and MathOdyssey (at) gmail.com. 
+      <h2 class="custom-title">Introduction of Omni-MATH</h2>
+      <p class="custom-paragraph">Recent advancements in AI, particularly in large language models (LLMs), have led to significant breakthroughs in mathematical reasoning capabilities. However, existing benchmarks ilke GSM8K or MATH are now being solved with high accuracy (e.g., 84.0% on MATH dataset), indicating their inadequacy for truly challenging these models.
+        To mitigate this limitation, we propose a comprehensive and challenging benchmark specifically designed to assess LLMs' mathematical reasoning at the Olympiad level. Unlike existing Olympiad-related benchmarks, our dataset focuses exclusively on mathematics and comprises a vast collection of 4480 competition-level problems. These problems are meticulously categorized into 33 (and potentially more) sub-domains and span across 10 distinct difficulty levels, enabling a nuanced analysis of model performance across various mathematical disciplines and levels of complexity.
+        <br><br><b>Difficulty</b>: We conducted an extensive survey of mathematics competitions worldwide, categorizing them into five tiers based on their prominence, scale, and problem difficulty: Introductory, Transitional, Intermediate, National/International Difficult, and Famous Worldwide. To ensure accurate difficulty assessment, we rigorously adhered to the AoPS website's difficulty levels for problems listed there. For problems not on their list, we employed GPT-4o and few-shot prompting to give the difficulty tag.
+        <br><br><b>Domain</b>: We referenced established mathematics competition resources to construct a hierarchical classification tree for mathematical domains. Each problem within our dataset is assigned a specific domain classification path, reflecting the specific area of mathematics it tests.
+        <br><br><b>Data Source</b>: We collected problem statements and solutions from various international competitions and converted them into LaTeX format. For competitions lacking readily available solutions, we carefully selected problems from the AoPS website with high community recognition and reliable answers. All problems in our dataset include not only the final answer but also a detailed solution.
+This newly proposed benchmark offers a valuable resource for researchers and developers to rigorously evaluate and further advance the mathematical reasoning abilities of LLMs.
         <table class="center">
           <thead>
             <tr>
@@ -470,7 +476,7 @@
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <!-- 一级下拉框的选项 -->
-          <a class="dropdown-item" href="#" data-value="minerva_math_Alge_tion">Algebra 1</a>
+          <a class="dropdown-item" href="#" data-value="Mathematics_Algebra">Algebra</a>
           <a class="dropdown-item" href="#" data-value="minerva_math_Alge_math">Algebra 2</a>
           <!-- 更多选项... -->
         </div>
@@ -482,13 +488,13 @@
         </button>
           <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="minerva_math_Alge_tion">
             <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
-            <a class="dropdown-item" href="#" data-value="111">Algebra 3</a>
+            <a class="dropdown-item" href="#" data-value="_Other">Other</a>
             <a class="dropdown-item" href="#" data-value="222">Algebra 4</a>
         </div>
         <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="minerva_math_Alge_math">
           <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
           <a class="dropdown-item" href="#" data-value="111">Algebra 3</a>
-          <a class="dropdown-item" href="#" data-value="222">Algebra 4</a>
+          <a class="dropdown-item" href="#" data-value="_Other">Other</a>
       </div>
         
       </div>
@@ -590,6 +596,7 @@
     <script src="samples_gen.js"></script>
     <script src="source.js"></script>
     <script src="difficulty.js"></script>
+    <script src="domain.js"></script>
 
     <script>
       $(document).ready(function () {
@@ -624,7 +631,7 @@
             final_selest = final_selest+value;
             console.log("这里是下拉框的选择")
             console.log(final_selest)
-            // changeSubject()
+            changeSubject(final_selest)
         }
     });
       $('input[name="contentGroup"]').change(function() {
@@ -648,7 +655,10 @@
             data = SOURCE_DATA[curSubject];
           }
           else if(curSubject.includes("difficulty")){
-            data =  D_DATA[curSubject]
+            data =  DIFFICULTY_DATA[curSubject]
+          }
+          else{
+            data = DOMAIN_DATA[curSubject]
           }
           console.log(data)
           totalPages = data.length;
