@@ -180,7 +180,7 @@
           width: 80%;
         }
         th {
-            background-color: #4CAF50;
+            background-color: #101ad7;
             color: white;
         }
         hr {
@@ -216,6 +216,26 @@
     }
     .logotitle{
       display: flex;
+    }
+    .org {
+      display: flex;          /* 使用Flexbox布局 */
+      align-items: center;    /* 垂直居中 */
+      justify-content: center;/* 水平居中 */
+      width: 100%;           /* 容器宽度设为100% */
+    }
+
+    .organization {
+      width: 20%;             /* 图片宽度设为容器宽度的一半 */
+      height: auto;   
+      margin: 0 80px;        /* 高度自动调整以保持图片比例 */
+      object-fit: contain;    /* 如果图片比例不同，保持图片在容器内完整显示 */
+    }
+    /* .peking{
+      height: 105;
+    } */
+    .org-name{
+      font-size: 2rem;
+      font-family: kefa;
     }
     </style>
 
@@ -259,10 +279,10 @@
     <!-- <link rel="icon" href="./static/images/icon.png"> -->
     <script type="text/javascript" src="static/js/sort-table.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- <script defer src="./static/js/fontawesome.all.min.js"></script>
-    <script src="./static/js/bulma-carousel.min.js"></script>
-    <script src="./static/js/bulma-slider.min.js"></script>
-    <script src="./static/js/index.js"></script> -->
+    <script defer src="static/js/fontawesome.all.min.js"></script>
+    <script src="static/js/bulma-carousel.min.js"></script>
+    <script src="static/js/bulma-slider.min.js"></script>
+    <script src="static/js/index.js"></script>
   </head>
   <body>
     <section>
@@ -272,9 +292,13 @@
         <div class="column has-text-centered">
           <!-- <div class="logotitle"> -->
           <img src="FullLogo_Transparent.png" alt="Logo" class="logo">
-          <h1 class="title is-1 publication-title">Omni-MATH: Exploring Olympiad Level Mathematical Reasoning Abilities of LLMs Through A Comprehensive Benchmark</h1>
+          <h1 class="title is-1 publication-title">Omni-MATH: A Universal Olympiad Level Mathematic Benchmark for Large Language Models</h1>
           <!-- </div> -->
-          <div class="is-size-5 publication-authors">
+          <div class="org">
+            <img src="Peking_University_logo.svg" alt="Logo" class="organization">
+            <img src="Alibaba-Logo.png" alt="Logo" class="organization" style="margin-right: 0rpx;">
+          </div>
+          <!-- <div class="is-size-5 publication-authors">
             <span class="author-block"><a href="http://huangzhen02.github.io">Zhen Huang</a><sup>3</sup>,</span>
             <span class="author-block"><a href="https://tinyurl.com/zengzhi-homepage">Zengzhi Wang</a><sup>1, 3</sup>,</span>
             <span class="author-block"><a href="https://shijie-xia.github.io/">Shijie Xia</a><sup>1, 3</sup>,</span>
@@ -303,17 +327,17 @@
             <span class="author-block"><a href="http://dahua.site/">Dahua Lin</a><sup>2*</sup>,</span>
             <span class="author-block"><a href="http://mmlab.siat.ac.cn/yuqiao">Yu Qiao</a><sup>2*</sup>,</span>
             <span class="author-block"><a href="http://pfliu.com/">Pengfei Liu</a><sup>1, 2, 3*</sup></span>
-        </div>
+        </div> -->
         
         <div class="is-size-5 publication-authors">
-            <span class="author-block"><sup>1</sup>Shanghai Jiao Tong University,</span>
-            <span class="author-block"><sup>2</sup>Shanghai Artificial Intelligence Laboratory,</span>
-            <span class="author-block"><sup>3</sup>Generative AI Research Lab (GAIR)</span>
+            <span class="org-name" style="margin-right: 10rem;"><sup>1</sup>PekingUniversity,</span>
+            <span class="org-name"><sup>2</sup>Alibaba Group</span>
+            <!-- <span class="author-block"><sup>3</sup>Generative AI Research Lab (GAIR)</span> -->
         </div>
 
-        <div class="is-size-5 publication-authors">
+        <!-- <div class="is-size-5 publication-authors">
           <span class="author-block"><sup>*</sup>Corresponding authors</span>
-        </div>
+        </div> -->
         
 
         <div class="column has-text-centered">
@@ -342,7 +366,7 @@
               <a href="https://huggingface.co/datasets/GAIR/OlympicArena/" target="_blank"
                   class="external-link button is-normal is-rounded is-white">
                 <span class="icon">
-                  <p style="font-size:18px">🤗</p>
+                  <p style="font-size:18px;margin-right: 2rem;">🤗</p>
                 </span>
                 <span>Datasets</span>
               </a>
@@ -351,7 +375,7 @@
             <span class="link-block">
               <a href="#leaderboard" class="external-link button is-normal is-rounded is-white">
                 <span class="icon">
-                  <p style="font-size:18px">🏟️</p>
+                  <p style="font-size:18px;margin-right: 2rem;">🏟️</p>
                 </span>
                 <span>Leaderboard</span>
               </a>
@@ -470,14 +494,14 @@ This newly proposed benchmark offers a valuable resource for researchers and dev
         <button type="button" class="btn btn-light" data="difficulty_7_10"> difficulty_7_10 </button>
       </div>
       <div id="domainButtons" class="drop">
-      <div class="dropdown" >
+      <div class="dropdown" style="width: 20%;">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           一级下拉框
         </button>
         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
           <!-- 一级下拉框的选项 -->
           <a class="dropdown-item" href="#" data-value="Mathematics_Algebra">Algebra</a>
-          <a class="dropdown-item" href="#" data-value="minerva_math_Alge_math">Algebra 2</a>
+          <a class="dropdown-item" href="#" data-value="Mathematics_Number Theory">Number Theory</a>
           <!-- 更多选项... -->
         </div>
       </div>
@@ -486,15 +510,70 @@ This newly proposed benchmark offers a valuable resource for researchers and dev
         <button class="btn btn-light dropdown-toggle" type="button" id="secondDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           二级下拉框
         </button>
-          <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="minerva_math_Alge_tion">
+          <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="Mathematics_Algebra">
             <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
             <a class="dropdown-item" href="#" data-value="_Other">Other</a>
-            <a class="dropdown-item" href="#" data-value="222">Algebra 4</a>
+            <a class="dropdown-item" href="#" data-value="_Algebra">Algebra</a>
+            <a class="dropdown-item" href="#" data-value="_Abstract Algebra">Abstract Algebra</a>
+            <a class="dropdown-item" href="#" data-value="_Intermediate Algebra">Intermediate Algebra</a>
+            <a class="dropdown-item" href="#" data-value="_Prealgebra">Prealgebra</a>
+            <a class="dropdown-item" href="#" data-value="_Linear Algebra">Linear Algebra</a>
+            <a class="dropdown-item" href="#" data-value="_Other (Matrix-related optimization)">Other (Matrix-related optimization)</a>
+            <a class="dropdown-item" href="#" data-value="_Equations and Inequalities">Equations and Inequalities</a>
+            <a class="dropdown-item" href="#" data-value="_Sequences and Series">Sequences and Series</a>
+            <a class="dropdown-item" href="#" data-value="_Number Theory">Number Theory</a>
+            <a class="dropdown-item" href="#" data-value="_Differential Equations">Differential Equations</a>
+            <a class="dropdown-item" href="#" data-value="_Combinatorics">Combinatorics</a>
+            <a class="dropdown-item" href="#" data-value="_Other (Number Theory - Divisibility)">Other (Number Theory - Divisibility)</a>
+            <a class="dropdown-item" href="#" data-value="_Exponents and Powers">Exponents and Powers</a>
+            <a class="dropdown-item" href="#" data-value="_Algebraic Expressions">Algebraic Expressions</a>
+            <a class="dropdown-item" href="#" data-value="_Functions and Sequences">Functions and Sequences</a>
+            <a class="dropdown-item" href="#" data-value="_Sequences">Sequences</a>
+            <a class="dropdown-item" href="#" data-value="_Binary Fractions">Binary Fractions</a>
+            <a class="dropdown-item" href="#" data-value="_Polynomial Operations">Polynomial Operations</a>
+            <a class="dropdown-item" href="#" data-value="_Factoring">Factoring</a>
+            <a class="dropdown-item" href="#" data-value="_Numbers">Numbers</a>
+            <a class="dropdown-item" href="#" data-value="_Polynomials">Polynomials</a>
+            <a class="dropdown-item" href="#" data-value="_Recurrence Relations">Recurrence Relations</a>
+            <a class="dropdown-item" href="#" data-value="_Quadratic Functions">Quadratic Functions</a>
+            <a class="dropdown-item" href="#" data-value="_Functional Equations">Functional Equations</a>
+            <a class="dropdown-item" href="#" data-value="_Elementary Functions">Elementary Functions</a>
+            <a class="dropdown-item" href="#" data-value="_Sequences and series">Sequences and series</a>
+            <a class="dropdown-item" href="#" data-value="_Complex Numbers">Complex Numbers</a>
+            <a class="dropdown-item" href="#" data-value="_Floor Function">Floor Function</a>
+            
         </div>
-        <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="minerva_math_Alge_math">
+        <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="Mathematics_Number_Theory">
           <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
-          <a class="dropdown-item" href="#" data-value="111">Algebra 3</a>
           <a class="dropdown-item" href="#" data-value="_Other">Other</a>
+            <a class="dropdown-item" href="#" data-value="_Greatest Common Divisors (GCD)">Greatest Common Divisors (GCD)</a>
+            <a class="dropdown-item" href="#" data-value="_Congruences">Congruences</a>
+            <a class="dropdown-item" href="#" data-value="_Prime Numbers">Prime Numbers</a>
+            <a class="dropdown-item" href="#" data-value="_Divisibility">Divisibility</a>
+            <a class="dropdown-item" href="#" data-value="_Factorization">Factorization</a>
+            <a class="dropdown-item" href="#" data-value="_Congruences (due to use of properties of roots of unity)">Congruences (due to use of properties of roots of unity)</a>
+            <a class="dropdown-item" href="#" data-value="_Perfect Squares">Perfect Squares</a>
+            <a class="dropdown-item" href="#" data-value="_Quadratic Fields">Quadratic Fields</a>
+            <a class="dropdown-item" href="#" data-value="_Divisors">Divisors</a>
+            <a class="dropdown-item" href="#" data-value="_Other (since the context of \\( A \\) is necessary but unspecified here, the question relates to determining and summing all divisors of an integer)">Differential Equations</a>
+            <a class="dropdown-item" href="#" data-value="_Combinatorics">Combinatorics</a>
+            <a class="dropdown-item" href="#" data-value="_Other (Number Theory - Divisibility)">Other (Number Theory - Divisibility)</a>
+            <a class="dropdown-item" href="#" data-value="_Exponents and Powers">Exponents and Powers</a>
+            <a class="dropdown-item" href="#" data-value="_Algebraic Expressions">Algebraic Expressions</a>
+            <a class="dropdown-item" href="#" data-value="_Functions and Sequences">Functions and Sequences</a>
+            <a class="dropdown-item" href="#" data-value="_Sequences">Sequences</a>
+            <a class="dropdown-item" href="#" data-value="_Binary Fractions">Binary Fractions</a>
+            <a class="dropdown-item" href="#" data-value="_Polynomial Operations">Polynomial Operations</a>
+            <a class="dropdown-item" href="#" data-value="_Factoring">Factoring</a>
+            <a class="dropdown-item" href="#" data-value="_Numbers">Numbers</a>
+            <a class="dropdown-item" href="#" data-value="_Polynomials">Polynomials</a>
+            <a class="dropdown-item" href="#" data-value="_Recurrence Relations">Recurrence Relations</a>
+            <a class="dropdown-item" href="#" data-value="_Quadratic Functions">Quadratic Functions</a>
+            <a class="dropdown-item" href="#" data-value="_Functional Equations">Functional Equations</a>
+            <a class="dropdown-item" href="#" data-value="_Elementary Functions">Elementary Functions</a>
+            <a class="dropdown-item" href="#" data-value="_Sequences and series">Sequences and series</a>
+            <a class="dropdown-item" href="#" data-value="_Complex Numbers">Complex Numbers</a>
+            <a class="dropdown-item" href="#" data-value="_Floor Function">Floor Function</a>
       </div>
         
       </div>
@@ -615,7 +694,12 @@ This newly proposed benchmark offers a valuable resource for researchers and dev
             final_selest = value;
             // 隐藏所有二级下拉框
             $('.dropdown-menu[id]').removeClass('show');
-
+            console.log("798123479123")
+            console.log(value)
+            if(value=="Mathematics_Number Theory")
+            {
+              value = "Mathematics_Number_Theory";
+            }
             // 显示对应的二级下拉框
             $('#' + value).addClass('show');
         } else {
