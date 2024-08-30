@@ -100,7 +100,9 @@
       .key-item.incorrect::before {
         background-color: rgb(255 187 187); /* Color for "Incorrect" */
       }
-
+      .drop{
+        display: flex;
+      }
       .typing-cursor {
         display: inline-block;
         width: 10px;
@@ -338,7 +340,7 @@
           <a href="https://github.com/protagolabs/odyssey-math">GitHub</a>
         </div>
       </div> -->
-      
+      <img src="25541724923794_.pic.jpg" class="img-fluid" alt="描述性文字">
       <h2>Leaderboard测试两下</h2>
       <p>MathOdyssey tests the mathematical reasoning ability of large language models. The dataset was created by <b> human professionals</b>  to ensure high quality and has <b>not been seen</b> by the models before.  It is designed exclusively for testing purposes. </br>
       We welcome you to contribute results from your model evaluations, or we can evaluate your model and add it to the leaderboard. Please contact us at hello (at) agiodyssey.org and MathOdyssey (at) gmail.com. 
@@ -409,36 +411,58 @@
         <label for="domainRadio">Domain</label>
       </div>
       <div class="buttons text-center mb-3" id="competitionButtons">
-        <button type="button" class="btn btn-primary" data="minerva_math_Alge_tion"> Algebra - High School Competition </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Alge_math"> Algebra - High School Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Numb_tion"> NumberTheory - High School Competition </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Geom_tion"> Geometry - High School Competition </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Geom_math"> Geometry - High School Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Comb_tion"> Combinatorics - High School Competition </button>
-        <button type="button" class="btn btn-light" data="minerva_math_PreC_math"> PreCalculus - High School Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Trig_math"> Trigonometry - High School Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Calc_math"> Calculus - High School Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Seri_math"> Series - High School Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Diff_math"> Differential Equations - College Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Line_math"> Linear Algebra and Abstract Algebra - College Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Calc_math"> Calculus and Analysis - College Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Prob_math"> Probability - College Math </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Stat_math"> Statistics - College Math </button>
+        <button type="button" class="btn btn-primary" data="source_team_selection_test"> source_team_selection_test </button>
+        <button type="button" class="btn btn-light" data="source_china_national_olympiad"> source_china_national_olympiad </button>
+        <button type="button" class="btn btn-light" data="source_jbmo"> source_jbmo </button>
+        <button type="button" class="btn btn-light" data="source_usamo"> source_usamo </button>
+        <button type="button" class="btn btn-light" data="source_usajmo"> source_usajmo </button>
+        <button type="button" class="btn btn-light" data="source_hmmt"> source_hmmt </button>
+        <button type="button" class="btn btn-light" data="source_apmo"> source_apmo </button>
+        <button type="button" class="btn btn-light" data="source_imc"> source_imc </button>
+        <button type="button" class="btn btn-light" data="source_izho"> source_izho </button>
+        <button type="button" class="btn btn-light" data="source_balkan_mo"> source_balkan_mo </button>
+        <button type="button" class="btn btn-light" data="source_baltic_way"> source_baltic_way </button>
+        <button type="button" class="btn btn-light" data="source_tot"> source_tot </button>
+        <button type="button" class="btn btn-light" data="source_imo"> source_imo </button>
+        <button type="button" class="btn btn-light" data="source_putnam"> source_putnam </button>
         <!-- Add more buttons as needed -->
       </div>
-      <div id="difficultyButtons" class="buttons text-center mb-3" >
-        <button type="button" class="btn btn-primary" data="minerva_math_Alge_tion"> test1 </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Alge_math"> test2 </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Numb_tion"> test3 </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Geom_tion"> test4 </button>
+      <div  class="buttons text-center mb-3" id="difficultyButtons">
+        <button type="button" class="btn btn-primary" data="difficulty_1_3"> difficulty_1_3 </button>
+        <button type="button" class="btn btn-light" data="difficulty_3_5"> difficulty_3_5 </button>
+        <button type="button" class="btn btn-light" data="difficulty_5_7"> difficulty_5_7 </button>
+        <button type="button" class="btn btn-light" data="difficulty_7_10"> difficulty_7_10 </button>
       </div>
-      <div id="domainButtons" class="buttons text-center mb-3" >
-        <button type="button" class="btn btn-primary" data="minerva_math_Alge_tion"> test5 </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Alge_math"> test6 </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Numb_tion"> test7 </button>
-        <button type="button" class="btn btn-light" data="minerva_math_Geom_tion"> test8 </button>
+      <div id="domainButtons" class="drop">
+      <div class="dropdown" >
+        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          一级下拉框
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+          <!-- 一级下拉框的选项 -->
+          <a class="dropdown-item" href="#" data-value="minerva_math_Alge_tion">Algebra 1</a>
+          <a class="dropdown-item" href="#" data-value="minerva_math_Alge_math">Algebra 2</a>
+          <!-- 更多选项... -->
+        </div>
       </div>
-
+      
+      <div class="dropdown">
+        <button class="btn btn-light dropdown-toggle" type="button" id="secondDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          二级下拉框
+        </button>
+          <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="minerva_math_Alge_tion">
+            <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
+            <a class="dropdown-item" href="#" data-value="111">Algebra 3</a>
+            <a class="dropdown-item" href="#" data-value="222">Algebra 4</a>
+        </div>
+        <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="minerva_math_Alge_math">
+          <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
+          <a class="dropdown-item" href="#" data-value="111">Algebra 3</a>
+          <a class="dropdown-item" href="#" data-value="222">Algebra 4</a>
+      </div>
+        
+      </div>
+    </div>
       <!-- Scrollable Content Area -->
       <div class="scrollable-div">
         <table class="table">
@@ -534,10 +558,46 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="samples_gen.js"></script>
+    <script src="source.js"></script>
+    <script src="difficulty.js"></script>
 
     <script>
       $(document).ready(function () {
-        $('input[name="contentGroup"]').change(function() {
+        $('#domainButtons').on('click', '.dropdown-item', function(event) {
+        event.preventDefault();
+        var $target = $(event.target);
+        var text = $target.text().trim(); // 获取选中的文本
+        var value = $target.data('value'); // 获取data-value属性
+        var final_selest = "";
+        // 检查点击的是哪个下拉框的选项
+        if ($target.closest('.dropdown-menu').attr('aria-labelledby') === 'dropdownMenuButton') {
+            final_selest = "";
+            // 点击的是一级下拉框的选项
+            // 更新一级下拉框按钮的文本
+            $('#dropdownMenuButton').text(text);
+            final_selest = text;
+            // 隐藏所有二级下拉框
+            $('.dropdown-menu[id]').removeClass('show');
+
+            // 显示对应的二级下拉框
+            $('#' + value).addClass('show');
+        } else {
+          console.log("hhhhhh")
+            // 点击的是二级下拉框的选项
+            // 找到点击的是哪个二级下拉框，并更新对应按钮的文本
+            var secondMenuId = $target.closest('.dropdown-menu').attr('id');
+            var buttonId = 'secondDropdownMenuButton'; // 假设所有二级下拉框按钮的ID是固定的
+            $('#' + buttonId).text(text);
+            $('.dropdown-menu[id]').removeClass('show');
+            // 这里可以添加其他需要的逻辑，例如处理选中的值
+            console.log('Selected value in ' + secondMenuId + ': ' + value);
+            final_selest = final_selest+value;
+            console.log("这里是下拉框的选择")
+            console.log(final_selest)
+            // changeSubject()
+        }
+    });
+      $('input[name="contentGroup"]').change(function() {
       var selectedValue = $(this).val();
       $('#competitionButtons, #difficultyButtons, #domainButtons').hide(); // 首先隐藏所有按钮组
       $('#' + selectedValue + 'Buttons').show(); // 然后显示选中的按钮组
@@ -549,11 +609,18 @@
         let incorrectColor = "#FFD5D5";
         let typingInterval; // outside of the function, to store the interval ID
         let isTyping = false;
-        changeSubject("minerva_math_Alge_tion");
+        changeSubject("source_team_selection_test");
 
         function changeSubject(subject) {
+          console.log(subject)
           curSubject = subject;
-          data = DATA[curSubject];
+          if(curSubject.includes("source_")){
+            data = SOURCE_DATA[curSubject];
+          }
+          else if(curSubject.includes("difficulty")){
+            data =  D_DATA[curSubject]
+          }
+          console.log(data)
           totalPages = data.length;
           $("#totalPages").text(totalPages);
           currentPage = 1;
@@ -564,11 +631,19 @@
 
         function updateData(idx) {
           idx = idx - 1;
-          $("#question").text(data[idx]["question"]);
+          $("#problemSource").text(data[idx]["source"]);
+          $("#question").text(data[idx]["problem"]);
+          console.log(data[idx]["problem"])
           // $(".fade-in").removeClass("visible");
-          reference_answer = data[idx]["reference_answer"].replace(/\n/g, "<br>");
-          $("#referenceAnswer").html(reference_answer);
-          $("#problemSource").text(data[idx]["problem_source"]);
+          var reference_answer = data[idx]["solution"]
+          // 将公式包装在MathJax可以识别的$...$中，以触发公式渲染
+          // reference_answer = "$" + reference_answer + "$";
+          console.log(reference_answer)
+          // 将公式作为文本插入，避免HTML解析
+          $("#referenceAnswer").text(reference_answer);
+
+          // 延迟渲染，确保MathJax在DOM更新后渲染公式
+          MathJax.typesetPromise([document.getElementById('referenceAnswer')]);
           // replace \n with <br> for model answer
           //model_answer = data[idx]["model_answer"].replace(/\n/g, "<br>");
           //$("#modelAnswer").html(model_answer);
