@@ -188,6 +188,26 @@
             border: 1px solid #ddd;
             margin: 20px 0;
         }
+        .custom-title {
+        font-family: Calibri (Body); /* 更改字体类型 */
+        color: #333; /* 更改字体颜色 */
+        font-size: 24px; /* 更改字体大小 */
+        text-align: center; /* 文本居中对齐 */
+        margin-top: 20px; /* 增加顶部边距 */
+      }
+
+      .custom-paragraph {
+        font-family: Calibri; /* 更改字体类型 */
+        color: #444; /* 更改字体颜色 */
+        font-size: 18px; /* 更改字体大小 */
+        line-height: 1.6; /* 行高 */
+        margin-bottom: 20px; /* 增加底部边距 */
+      }
+
+      b {
+        font-weight: bold; /* 加粗 */
+        color: #0066cc; /* 强调颜色 */
+      }
     </style>
 
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
@@ -289,7 +309,7 @@
             <!-- PDF Link. -->
             <span class="link-block">
               <a href="https://arxiv.org/pdf/2406.12753" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
+                  class="external-link button is-normal is-rounded is-white">
                 <span class="icon">
                     <i class="fas fa-file-pdf"></i>
                 </span>
@@ -298,7 +318,7 @@
             </span>
             <span class="link-block">
               <a href="https://github.com/GAIR-NLP/OlympicArena" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
+                  class="external-link button is-normal is-rounded is-white">
                 <span class="icon">
                     <i class="fab fa-github"></i>
                 </span>
@@ -308,7 +328,7 @@
             <!-- Dataset Link. -->
             <span class="link-block">
               <a href="https://huggingface.co/datasets/GAIR/OlympicArena/" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
+                  class="external-link button is-normal is-rounded is-white">
                 <span class="icon">
                   <p style="font-size:18px">🤗</p>
                 </span>
@@ -317,7 +337,7 @@
             </span>
             <!-- Leaderboard Link. -->
             <span class="link-block">
-              <a href="#leaderboard" class="external-link button is-normal is-rounded is-dark">
+              <a href="#leaderboard" class="external-link button is-normal is-rounded is-white">
                 <span class="icon">
                   <p style="font-size:18px">🏟️</p>
                 </span>
@@ -341,8 +361,8 @@
         </div>
       </div> -->
       <img src="25541724923794_.pic.jpg" class="img-fluid" alt="描述性文字">
-      <h2>Leaderboard测试两下</h2>
-      <p>MathOdyssey tests the mathematical reasoning ability of large language models. The dataset was created by <b> human professionals</b>  to ensure high quality and has <b>not been seen</b> by the models before.  It is designed exclusively for testing purposes. </br>
+      <h2 class="custom-title">Leaderboard测试两下</h2>
+      <p class="custom-paragraph">MathOdyssey tests the mathematical reasoning ability of large language models. The dataset was created by <b> human professionals</b>  to ensure high quality and has <b>not been seen</b> by the models before.  It is designed exclusively for testing purposes. </br>
       We welcome you to contribute results from your model evaluations, or we can evaluate your model and add it to the leaderboard. Please contact us at hello (at) agiodyssey.org and MathOdyssey (at) gmail.com. 
         <table class="center">
           <thead>
@@ -563,19 +583,19 @@
 
     <script>
       $(document).ready(function () {
+        var final_selest;
         $('#domainButtons').on('click', '.dropdown-item', function(event) {
         event.preventDefault();
         var $target = $(event.target);
         var text = $target.text().trim(); // 获取选中的文本
         var value = $target.data('value'); // 获取data-value属性
-        var final_selest = "";
+        
         // 检查点击的是哪个下拉框的选项
         if ($target.closest('.dropdown-menu').attr('aria-labelledby') === 'dropdownMenuButton') {
-            final_selest = "";
             // 点击的是一级下拉框的选项
             // 更新一级下拉框按钮的文本
             $('#dropdownMenuButton').text(text);
-            final_selest = text;
+            final_selest = value;
             // 隐藏所有二级下拉框
             $('.dropdown-menu[id]').removeClass('show');
 
