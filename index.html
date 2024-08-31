@@ -180,7 +180,7 @@
           width: 80%;
         }
         th {
-            background-color: #101ad7;
+            background-color: #953b3f;
             color: white;
         }
         hr {
@@ -330,8 +330,8 @@
         </div> -->
         
         <div class="is-size-5 publication-authors">
-            <span class="org-name" style="margin-right: 10rem;"><sup>1</sup>PekingUniversity,</span>
-            <span class="org-name"><sup>2</sup>Alibaba Group</span>
+            <!-- <span class="org-name" style="margin-right: 10rem;"><sup>1</sup>PekingUniversity,</span>
+            <span class="org-name"><sup>2</sup>Alibaba Group</span> -->
             <!-- <span class="author-block"><sup>3</sup>Generative AI Research Lab (GAIR)</span> -->
         </div>
 
@@ -375,7 +375,7 @@
             <span class="link-block">
               <a href="#leaderboard" class="external-link button is-normal is-rounded is-white">
                 <span class="icon">
-                  <p style="font-size:18px;margin-right: 2rem;">🏟️</p>
+                  <p style="font-size:18px;margin-right: 2rem;">📊</p>
                 </span>
                 <span>Leaderboard</span>
               </a>
@@ -471,27 +471,48 @@ This newly proposed benchmark offers a valuable resource for researchers and dev
         <label for="domainRadio">Domain</label>
       </div>
       <div class="buttons text-center mb-3" id="competitionButtons">
-        <button type="button" class="btn btn-primary" data="source_team_selection_test"> source_team_selection_test </button>
-        <button type="button" class="btn btn-light" data="source_china_national_olympiad"> source_china_national_olympiad </button>
-        <button type="button" class="btn btn-light" data="source_jbmo"> source_jbmo </button>
-        <button type="button" class="btn btn-light" data="source_usamo"> source_usamo </button>
-        <button type="button" class="btn btn-light" data="source_usajmo"> source_usajmo </button>
-        <button type="button" class="btn btn-light" data="source_hmmt"> source_hmmt </button>
-        <button type="button" class="btn btn-light" data="source_apmo"> source_apmo </button>
-        <button type="button" class="btn btn-light" data="source_imc"> source_imc </button>
-        <button type="button" class="btn btn-light" data="source_izho"> source_izho </button>
-        <button type="button" class="btn btn-light" data="source_balkan_mo"> source_balkan_mo </button>
-        <button type="button" class="btn btn-light" data="source_baltic_way"> source_baltic_way </button>
-        <button type="button" class="btn btn-light" data="source_tot"> source_tot </button>
-        <button type="button" class="btn btn-light" data="source_imo"> source_imo </button>
-        <button type="button" class="btn btn-light" data="source_putnam"> source_putnam </button>
+        <div class="btn-container">
+          <div class="btn-row">
+              <div class="row-title">T0: International Famous Olympiad Competitions</div>
+              <button type="button" class="btn btn-custom t4" data="source_imo">IMO</button>
+              <button type="button" class="btn btn-custom t4" data="source_putnam">Putnam</button>
+              <button type="button" class="btn btn-custom t4" data="source_imc">IMC</button>
+          </div>
+          <div class="btn-row">
+              <div class="row-title">T1: International/Nationally Recognized Difficult Olympiad Competitions</div>
+              <button type="button" class="btn btn-custom t3" data="source_usamo">USAMO</button>
+              <button type="button" class="btn btn-custom t3" data="source_china_national_olympiad">China National Olympiad</button>
+              <button type="button" class="btn btn-custom t3" data="source_team_selection_test">Team Selection Test</button>
+              <button type="button" class="btn btn-custom t3" data="source_izho">IZHO</button>
+          </div>
+          <div class="btn-row">
+              <div class="row-title">T2: International/Nationally Intermediate Olympiad Competitions</div>
+              <button type="button" class="btn btn-custom t2" data="source_apmo">APMO</button>
+              <button type="button" class="btn btn-custom t2" data="source_usajmo">USAJMO</button>
+              <button type="button" class="btn btn-custom t2" data="source_balkan_mo">Balkan MO</button>
+              <button type="button" class="btn btn-custom t2" data="source_jbmo">JBMO</button>
+              <button type="button" class="btn btn-custom t2" data="source_tot">Tournament of Town</button>
+              <button type="button" class="btn btn-custom t2" data="source_baltic_way">Baltic Way</button>
+          </div>
+          <div class="btn-row">
+              <div class="row-title">T3: Transitional Competitions</div>
+              <button type="button" class="btn btn-custom t1" data="source_hmmt_2">HMMT February</button>
+              <button type="button" class="btn btn-custom t1" data="source_hmmt_2">HMMT November</button>
+          </div>
+          <div class="btn-row">
+              <div class="row-title">T4: Introductory Competitions</div>
+              <button type="button" class="btn btn-custom t0" data="source_pascal">Pascal</button>
+              <button type="button" class="btn btn-custom t0" data="source_cayley">Cayley</button>
+              <button type="button" class="btn btn-custom t0" data="source_fermat">Fermat</button>
+          </div>
+        </div>
         <!-- Add more buttons as needed -->
       </div>
       <div  class="buttons text-center mb-3" id="difficultyButtons">
-        <button type="button" class="btn btn-primary" data="difficulty_1_3"> difficulty_1_3 </button>
-        <button type="button" class="btn btn-light" data="difficulty_3_5"> difficulty_3_5 </button>
-        <button type="button" class="btn btn-light" data="difficulty_5_7"> difficulty_5_7 </button>
-        <button type="button" class="btn btn-light" data="difficulty_7_10"> difficulty_7_10 </button>
+        <button type="button" class="btn btn-primary" data="difficulty_1_3"> difficulty: 1-3 </button>
+        <button type="button" class="btn btn-light" data="difficulty_3_5"> difficulty: 3-5 </button>
+        <button type="button" class="btn btn-light" data="difficulty_5_7"> difficulty: 5-7 </button>
+        <button type="button" class="btn btn-light" data="difficulty_7_10"> difficulty: 7-10 </button>
       </div>
       <div id="domainButtons" class="drop">
       <div class="dropdown" style="width: 20%;">
