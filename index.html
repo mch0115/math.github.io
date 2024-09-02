@@ -610,7 +610,7 @@ This newly proposed benchmark offers a valuable resource for researchers and dev
           <a class="dropdown-item" href="#" data-value="_Other">Other</a>
           <a class="dropdown-item" href="#" data-value="_Differential Geometry">Differential Geometry</a>
     </div>
-        <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="Mathematics_Discrete Mathematics">
+        <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="Mathematics_Discrete_Mathematics">
           <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
           <a class="dropdown-item" href="#" data-value="_Graph Theory">Graph Theory</a>
             <a class="dropdown-item" href="#" data-value="_Algorithms">Algorithms</a>
@@ -640,7 +640,7 @@ This newly proposed benchmark offers a valuable resource for researchers and dev
         <a class="dropdown-item" href="#" data-value="_Limits">Limits</a>
         <a class="dropdown-item" href="#" data-value="_Functions">Functions</a>
   </div>
-  <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="Mathematics_Applied Mathematics">
+  <div class="dropdown-menu" aria-labelledby="secondDropdownMenuButton" id="Mathematics_Applied_Mathematics">
     <!-- 二级下拉框的选项将根据一级下拉框的选择动态更新 -->
     <a class="dropdown-item" href="#" data-value="_Statistics">Statistics</a>
       <a class="dropdown-item" href="#" data-value="_Probability">Probability</a>
@@ -775,6 +775,14 @@ This newly proposed benchmark offers a valuable resource for researchers and dev
             if(value=="Mathematics_Number Theory")
             {
               value = "Mathematics_Number_Theory";
+            }
+            if(value=="Mathematics_Discrete Mathematics")
+            {
+              value = "Mathematics_Discrete_Mathematics";
+            }
+            if(value=="Mathematics_Applied Mathematics")
+            {
+              value = "Mathematics_Applied_Mathematics";
             }
             // 显示对应的二级下拉框
             $('#' + value).addClass('show');
