@@ -3,6 +3,7 @@ body {
 }
 
 .btn-row {
+  font-family: kefa;
   display: flex; /* Use flexbox for rows */
   justify-content: center; /* Center align buttons */
   flex-wrap: wrap; /* Allow wrapping to the next line */
@@ -11,6 +12,7 @@ body {
 }
 
 .btn-container {
+  font-family: kefa;
   display: flex; /* Use flexbox for main container */
   flex-direction: column; /* Stack the rows */
   align-items: center; /* Center align the rows */
